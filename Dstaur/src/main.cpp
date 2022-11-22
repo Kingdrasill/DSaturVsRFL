@@ -1,8 +1,10 @@
 #include <iostream>
-
+#include <vector>
+#include <algorithm>
 using namespace std;
 typedef struct graph graph;
 typedef struct cell cell;
+
 
 struct graph
 {
@@ -13,7 +15,7 @@ struct graph
 struct cell
 {
     bool edge;
-    string color;
+    int color;
     int degreeSatur;
     int degree;
 };
@@ -25,7 +27,7 @@ void initialize(graph* g, int num){
         g->adjMatrix[i] = new cell[num];
         for(int j = 0; j < num; j++){
             g->adjMatrix[i][j].edge = false;
-            g->adjMatrix[i][j].color = "";
+            g->adjMatrix[i][j].color = 0;
             g->adjMatrix[i][j].degreeSatur = 0;
             g->adjMatrix[i][j].degree = 0;
         }
@@ -59,35 +61,64 @@ void toString(graph g){
 }
 
 
-void colorir(graph, vertice){
-	loop(vizinhos ){
-		verificarCorVizinhos(){
-			salvarVetorCorVizinhos()
-		}
-		Vizinho +1 degreeSatur;
-	}
-	menorCordiferentedosViz();
+void Colorir(graph g, int vertice){
+    vector<int> corVizinhos;
+    for(int i = 0; i<g.numVertices; i++){
+        if(vertice != i && g.adjMatrix[vertice][i].edge){
+            if(g.adjMatrix[i][i].color > 0){
+                corVizinhos.push_back(g.adjMatrix[i][i].color);
+            }
+            g.adjMatrix[i][i].degreeSatur++;
+        }
+    }
+    sort(corVizinhos.begin(),corVizinhos.end());
+
+    int menorCor;
+    if(!corVizinhos.empty()){
+        for(int i = 0; i<(int)corVizinhos.size(); i++){
+            if(i == 0){
+                menorCor = corVizinhos[i]+1;
+            }
+            else{
+                if(menorCor < corVizinhos[i]){
+                    break;
+                }
+                else{
+                    menorCor = corVizinhos[i]+1;
+                }
+            }
+        }
+    }
+    else{
+        menorCor = 1;
+    }
+    g.adjMatrix[vertice][vertice].color = menorCor;
 }
 
-void proxVerticeColorir(graph){
-	loop(vertices){
-		escolherMaiorDSatur;
-		empateDSatur = escolherMaiorDegree;
-		empateDegree = qualquerUmEmpate;
-	}
-	Colorir(graph, verticeEscolhido);
+void proxVerticeColorir(graph g,int vertices){
+    for(int i=0; i< vertices; i++){
+        
+    }
+    Colorir(g, verticeEscolhido);
+}
+
+// void proxVerticeColorir(graph){
+// 	loop(vertices){
+// 		escolherMaiorDSatur;
+// 		empateDSatur = escolherMaiorDegree;
+// 		empateDegree = qualquerUmEmpate;
+// 	}
+// 	Colorir(graph, verticeEscolhido);
 	
-}
+// }
 
-void DSatur(graph){
-	loop(){
-		proxVerticeColorir(graph);
-		verificarVerticeNull = if continuar loop. else sair loop
-	}
+// void DSatur(graph){
+// 	loop(){
+// 		proxVerticeColorir(graph);
+// 		verificarVerticeNull = if continuar loop. else sair loop
+// 	}
 	
-}
-
-
+// }
 
 
 int main(){
@@ -106,7 +137,9 @@ int main(){
     addEdge(&g,4, 6);
     addEdge(&g,5, 6);
    
-
+    // colorir(g,5);
+    // colorir(g,6);
+    // cout<< g.adjMatrix[6][6].color<< endl;
     toString(g);
 
     return 0;
