@@ -1,7 +1,6 @@
 #include "dsatur.hpp"
 
 typedef struct position position;
-typedef struct solution solution;
 
 struct  position {
     int vertex;
@@ -10,12 +9,7 @@ struct  position {
     int numberNeighborNotS;
 };
 
-struct solution {
-    vector<vector<int>> S;
-    vector<int> cores;
-};
-
-void removeSFromGraph(graph *g, vector<position> S);
+void removeSetFromGraph(graph *g, vector<position> S);
 
 bool vertexIsInS(vector<position> S, int vertex);
 
@@ -33,5 +27,4 @@ void createVectorOfAdjacentsAndNot(graph g, vector<position> S, vector<position>
 void findIndependentSet(graph g, vector<position> *S);
 solution recursiveLargestFirst(graph copy);
 
-void colorirSudoku(graph *g);
-solution colorirGraph(graph *g);
+void timedColoringRLF(graph *g, tempos *rlf);

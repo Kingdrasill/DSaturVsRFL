@@ -1,6 +1,6 @@
 #include "rlf.hpp"
 
-void removeSFromGraph(graph *g, vector<position> S) {
+void removeSetFromGraph(graph *g, vector<position> S) {
     for(int i=0; i<(int)S.size(); i++) {
         for(int j=0; j<g->numVertices; j++) {
             if(j != S[i].currentPosition && g->adjMatrix[S[i].currentPosition][j].edge)
@@ -244,8 +244,8 @@ solution recursiveLargestFirst(graph copy) {
             }
         }
         cores.cores.push_back(cor);
-        cores.S.push_back(conjunto);
-        removeSFromGraph(&copy, S);
+        cores.sets.push_back(conjunto);
+        removeSetFromGraph(&copy, S);
         S.clear();
         conjunto.clear();
     }
@@ -253,44 +253,17 @@ solution recursiveLargestFirst(graph copy) {
     return cores;
 }
 
-void colorirSudoku(graph *g) {
-    int n = pow(g->numVertices, 1.0/4);
-    if(checkIfSudokuSovable(*g)) {
-        solution cores = recursiveLargestFirst(*g);
-        initializeSudoku(g, n);
-        for(int i=0; i<(int)cores.S.size(); i++) {
-            for(int j=0; j<(int)cores.S[i].size(); j++) {
-                for(int x=0; x<g->numVertices; x++) {
-                    if(g->adjMatrix[x][x].vertex == cores.S[i][j]) {
-                        if(cores.cores[i] != 0) {
-                            g->adjMatrix[x][x].color = cores.cores[i];
-                        } else {
-                            int cor = smallestColorPossible(cores.cores);
-                            cores.cores[i] = cor;
-                            g->adjMatrix[x][x].color = cor;
-                        }
-                    }
-                }
-            }
-        }
-        cout << "Sudoku completo:\n" << endl;
-        printSudoku(*g);
-    } else {
-        cout << "Sudoku esta montado de forma errada!" << endl;
-    }
-}
+void timedColoringRLF(graph *g, tempos *rlf) {
+    std::chrono::_V2::high_resolution_clock::time_point start, end;
 
-solution colorirGraph(graph *g) {
-    solution cores = recursiveLargestFirst(*g);
-    for(int i=0; i<(int)cores.cores.size(); i++) {
-        cores.cores[i] = i+1;
+    start = chrono::high_resolution_clock::now();
+    solution S = recursiveLargestFirst(*g);
+    end = chrono::high_resolution_clock::now();
+
+    std::chrono::microseconds time = chrono::duration_cast<chrono::microseconds>(end - start);
+    rlf->tempo.push_back(time);
+    for(int i=0; i<(int)S.sets.size(); i++) {
+        S.cores[i] = i+1;
     }
-    for(int i=0; i<(int)cores.cores.size(); i++) {
-        cout << "Cor " << cores.cores[i] << ": ";
-        for(int j=0; j<(int)cores.S[i].size(); j++) {
-            cout << cores.S[i][j] << " ";
-        }
-        cout << endl;
-    }
-    return cores;
+    rlf->solucao.push_back(S);
 }

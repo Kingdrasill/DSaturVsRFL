@@ -2,6 +2,7 @@
 
 void initializeGraph(graph* g, int num){
     g->numVertices = num;
+    g->numColoridos = 0;
     g->adjMatrix = new cell*[num];
     for (int i = 0; i < num; i++){
         g->adjMatrix[i] = new cell[num];
@@ -11,6 +12,7 @@ void initializeGraph(graph* g, int num){
             g->adjMatrix[i][j].degreeSatur = 0;
             g->adjMatrix[i][j].degree = 0;
         }
+        g->adjMatrix[i][i].vertex = i;
     } 
 
 }
@@ -81,13 +83,16 @@ void addVertexColor(graph* g, int vertex, int color) {
 }
 
 void calculateVertexDegree(graph *g) {
+    int grau;
     for(int i = 0;  i < g->numVertices; i++) {
+        grau = 0;
         for(int j = 0;  j < g->numVertices; j++) {
             if(i != j) {
                 if(g->adjMatrix[i][j].edge)
-                    g->adjMatrix[i][i].degree++;
+                    grau++;
             }
         }
+        g->adjMatrix[i][i].degree = grau;
     }
 }
 
@@ -130,39 +135,6 @@ void removeVertex(graph *g, int x) {
     }
 }
 
-void printGraph(graph g) {
-    for (int i = 0; i < g.numVertices; i++){
-        for(int j = 0; j < g.numVertices; j++){
-            cout << g.adjMatrix[i][j].edge << " ";
-        }
-        cout << endl;
-    } 
-    cout << endl;
-}
-
-void printSudoku(graph g) {
-    int cells=pow(g.numVertices, 1.0/4), line=pow(g.numVertices, 1.0/2), block=cells*line;
-    int c=0, l=0, b=0;
-    for(int i=0; i<g.numVertices; i++) {
-        cout << g.adjMatrix[i][i].color << " ";
-        c++;
-        l++;
-        b++;
-        if(c == cells) {
-            c = 0;
-            cout << "\t";
-        }
-        if(l == line) {
-            l = 0;
-            cout << "\n";
-        }
-        if(b == block) {
-            b = 0;
-            cout << "\n";
-        }
-    }
-}
-
 void removeDuplicates(vector<int> *vec) {
     set<int> s;
     unsigned size = vec->size();
@@ -171,13 +143,15 @@ void removeDuplicates(vector<int> *vec) {
 }
 
 void sudokuRand(graph *g, int numColors) {
-    int colorido = 1;
-    while(colorido <= numColors) {
-        int vertex = randV(*g);
-        if(g->adjMatrix[vertex][vertex].color == 0) {
-            g->adjMatrix[vertex][vertex].color = colorido;
-            colorido++;
-        }
+    int cor = 1;
+    while(cor <= numColors) {
+        do {
+            int vertex = randV(*g);
+            if(g->adjMatrix[vertex][vertex].color == 0) {
+                addVertexColor(g, vertex, cor%(int)pow(g->numVertices, 1.0/2)+1);
+                cor++;
+            }
+        } while(!checkIfSudokuSovable(*g));
     }
 }
 

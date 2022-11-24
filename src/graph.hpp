@@ -6,6 +6,7 @@
 #include <cstring>
 #include <fstream>
 #include <sstream>
+#include <chrono>
 
 using namespace std;
 
@@ -13,10 +14,10 @@ typedef struct graph graph;
 typedef struct cell cell;
 
 
-struct graph
-{
+struct graph {
     cell** adjMatrix;
     int numVertices;
+    int numColoridos;
 };
 
 struct cell {
@@ -37,9 +38,6 @@ void calculateVertexDegree(graph *g);
 void addEdge(graph* g,int i,int j);
 void removeEdge(graph* g,int i,int j);
 void removeVertex(graph* g, int x);
-
-void printGraph(graph g);
-void printSudoku(graph g);
 
 void removeDuplicates(vector<int> *vec);
 void sudokuRand(graph *g, int numColors);

@@ -1,6 +1,6 @@
 #include "dsatur.hpp"
 
-void Colorir(graph* g, int vertice){
+void colorirVertexDSatur(graph* g, int vertice){
     vector<int> corVizinhos;
     for(int i = 0; i<g->numVertices; i++){
         if(vertice != i && g->adjMatrix[vertice][i].edge){
@@ -21,9 +21,10 @@ void Colorir(graph* g, int vertice){
         }
     }
     g->adjMatrix[vertice][vertice].color = menorCor;
+    g->numColoridos++;
 }
 
-void proxVerticeColorir(graph* g){
+void findNextVertexToPaint(graph* g){
     vector<int> Maiores;
     int verticeEscolhido,MaxDSatur=-1;
     for(int i=0; i< g->numVertices; i++){
@@ -55,25 +56,48 @@ void proxVerticeColorir(graph* g){
         }
     }
     }
-    Colorir(g, verticeEscolhido);
+    colorirVertexDSatur(g, verticeEscolhido);
 }
 
 void DStaur(graph* g){
-    bool continuar= true;
-    int cont= 0;
-    while (continuar){
-        cont =0;
-        for(int i =0; i < g->numVertices; i++){
-            if(g->adjMatrix[i][i].color == 0){
-                cont += 1;
-            }
+    while (g->numColoridos != g->numVertices){
+        findNextVertexToPaint(g);
+    } 
+}
+
+void timedColoringDSatur(graph *g, tempos *dsatur) {
+    std::chrono::_V2::high_resolution_clock::time_point start, end;
+
+    start = chrono::high_resolution_clock::now();
+    DStaur(g);
+    end = chrono::high_resolution_clock::now();
+
+    std::chrono::microseconds time = chrono::duration_cast<chrono::microseconds>(end - start);
+    dsatur->tempo.push_back(time);
+
+    vector<int> empty;
+    empty.clear();
+    solution S;
+    bool add;
+    int cor;
+    for(int i=0; i<g->numVertices; i++) {
+        add = true;
+        cor = g->adjMatrix[i][i].color;
+        for(int j=0; j<(int)S.cores.size(); j++) {
+            if(cor == S.cores[j])
+                add = false;
         }
-        if(cont > 0){
-            proxVerticeColorir(g);
-        }
-        else{
-            continuar = false;
+        if(add)
+            S.cores.push_back(cor);
+    }
+    sort(S.cores.begin(), S.cores.end());
+    for(int j=0; j<(int)S.cores.size(); j++) {
+        S.sets.push_back(empty);
+        for(int i=0; i<g->numVertices; i++) {
+            if(g->adjMatrix[i][i].color == S.cores[j])
+                S.sets[j].push_back(g->adjMatrix[i][i].vertex);
         }
     }
-       
+
+    dsatur->solucao.push_back(S);
 }
