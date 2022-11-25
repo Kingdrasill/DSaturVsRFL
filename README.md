@@ -1,6 +1,6 @@
 # DSatur VS Recusive Largest First(RLF)
 
-O objetivo da implemntação desse algoritmo é de realizar a comparação de dois modos diferentes para se realizar a coloração de Grafos sendo esses dois algoritmos o DSatur e o RLF.
+O objetivo da implementação desse algoritmo é de realizar a comparação de dois modos diferentes para se realizar a coloração de Grafos sendo esses dois algoritmos o DSatur e o RLF, e analisar se os mesmo sao bons algoritmos para resolver Sudokus.
 
 # DSatur
 
