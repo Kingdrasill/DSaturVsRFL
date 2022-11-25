@@ -113,8 +113,16 @@ Como pode ser visto nos resultados dos sudokus as formas básicas dos alogritmos
 
 Outra conclusão é que o algoritmo DSatur não é bom para resolver sudokus, só que ele é bom para resolver de forma rápida uma coloração de vértices mas sem ter uma coloração muito boa. Já o algoritmo RLF é bem melhor para resolver sudokus mas nem sempre, só que ele é ruim para resolver de forma rápida uma coloração de vértices mas tem uma ótima coloração.  
 
-| Comando                |  Função                                                                                           |
+# Compilação e Execução
+
+O algoritmo possui um arquivo Makefile que realiza todo o procedimento de compilação e execução. Para tanto, temos as seguintes diretrizes de execução:
+
+
+| Comando                |  Função                                                                                           |                     
 | -----------------------| ------------------------------------------------------------------------------------------------- |
 |  `make clean`          | Apaga a última compilação realizada contida na pasta build                                        |
 |  `make`                | Executa a compilação do programa utilizando o gcc, e o resultado vai para a pasta build           |
 |  `make run`            | Executa o programa da pasta build após a realização da compilação                                 |
+
+
+<p>Trabalho realizado Gabriel Teixeira Júlio e Marcus - Novembro/2022</p>
