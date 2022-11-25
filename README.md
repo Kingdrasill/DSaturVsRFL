@@ -66,7 +66,7 @@ A execução do algoritmo resulta na seleção e coloração dos vértices na se
   <li>Vértice <i>B,D</i>, e <i>F</i> (cor 3)</li>
 </ul>
 
-Isso dá a solução tricolor final <i>S= {{G},{A,C,E},{B,D,F}</i>
+Isso dá a solução tricolor final <i>S= {{G},{A,C,E},{B,D,F}}</i>
 
 # Resultados
 Com base na execução, com 100 grafos aleatórios com 30 vértices e 200 arestas, do algoritmo obtivemos os seguintes resultados:
