@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DSatur Vs RLF: DSatur Vs Recursive Largest First(RLF)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DSatur Vs RLF
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">DSatur Vs Recursive Largest First(RLF) </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>O objetivo da implementação desse algoritmo é de realizar a comparação de dois modos diferentes para se realizar a coloração de Grafos sendo esses dois algoritmos o DSatur e o RLF, e analisar se os mesmo sao bons algoritmos para resolver Sudokus.</p>
+<h1><a class="anchor" id="DSatur"></a>
+DSatur</h1>
+<p>DSatur é um algoritmo usado para a coloração de grafos que foi inicialmente apresentado por Daniel Brélaz em 1979, o DSatur é similiar ao algoritmo de coloração guloso, colorindo um vertice do grafo um após o outro, adicionando uma cor não usada anteriormente quando necessário. Uma vez que um novo vértice foi colorido, o algoritmo determina qual dos vértices não coloridos restantes tem o maior número de cores em sua vizinhança e colore esse vértice a seguir.</p>
+<h2><a class="anchor" id="Pseudocódigo"></a>
+DSatur</h2>
+<ol>
+<li>
+Deixar <em>V</em> ser o vértice não colorido em <em>G</em> com o maior grau de saturação. Em casos de empates, escolha o vértice dentre estes de maior grau no subgrafo induzido pelos vértices incolores. </li>
+<li>
+Atribuir <em>V</em> para o rótulo de cor mais baixo não sendo usado por nenhum de seus vizinhos. </li>
+<li>
+Se todos os vértices foram coloridos, end; caso contrário, retorne ao Passo 1. </li>
+</ol>
+<h1><a class="anchor" id="a"></a>
+Recursive Largest First (RLF)</h1>
+<p>O algoritmo Recursive Largest First é uma heurística para o problema de coloração de grafos NP-difícil. Foi originalmente proposto por Frank Leighton em 1979.</p>
+<p>O algoritmo RLF atribui cores aos vértices de um grafo construindo cada classe de cor uma de cada vez. Ele faz isso identificando um conjunto independente máximo de vértices no gráfico, atribuindo-os à mesma cor e, em seguida, removendo esses vértices do gráfico. Essas ações são repetidas no subgrafo restante até que nenhum vértice permaneça.</p>
+<h2><a class="anchor" id="b"></a>
+Pseudocódigo RLF</h2>
+<p>O algoritmo pode ser descrito pelas três etapas a seguir. Ao final desse processo, <em>S</em> dá uma partição dos vértices que representam um viável |<em>S</em>| -coloração do gráfico <em>G</em>.</p>
+<ol>
+<li>
+Deixar <em>S = 0</em> ser uma solução vazia. Além disso, deixe <em>G=(V,E)</em> ser o grafo que desejamos colorir, compreendendo um conjunto de vértices <em>V</em> e um conjunto de arestas <em>E</em>. </li>
+<li>
+Identifique um conjunto independente maximal <em> S ⊆ V</em>. Para fazer isso: <ol>
+<li>
+O primeiro vértice adicionado a <em>S</em> deve ser o vértice em <em>G</em> que tem o maior número de vizinhos. </li>
+<li>
+Vértices subseqüentes adicionados a <em>S</em> devem ser escolhidos como aqueles que (a) não são atualmente adjacentes a nenhum vértice em <em>S</em> , e (b) ter um número máximo de vizinhos que são adjacentes aos vértices em <em>S</em>. Os empates na condição (b) podem ser quebrados selecionando o vértice com o número mínimo de vizinhos fora da <em>S</em>. Os vértices são adicionados a <em>S</em> desta forma até que seja impossível adicionar mais vértices. </li>
+</ol>
+</li>
+<li>
+Agora definido <em>S = S ∪ {S}</em> e remover os vértices de <em>S</em> a partir de <em>G</em> . Se <em>G</em> ainda contém vértices, então retorne ao Passo 2; caso contrário, terminar. </li>
+</ol>
+<h1><a class="anchor" id="Exemplo"></a>
+Exemplo</h1>
+<p>Tanto o gráfico DSatur e RLF são gráficos de rodas apresentados pela imagem abaixo</p>
+<div class="image">
+<img src="img2.png" alt=""/>
+</div>
+<h2><a class="anchor" id="c"></a>
+Resolução DSatur</h2>
+<p>A execução do algoritmo resulta na seleção e coloração dos vértices da seguinte forma.</p>
+<ul>
+<li>
+Vértice G (cor 1) </li>
+<li>
+Vértice A (cor 2) </li>
+<li>
+Vértice B (cor 3) </li>
+<li>
+Vértice C (cor 2) </li>
+<li>
+Vértice D (cor 3) </li>
+<li>
+Vértice E (cor 2) </li>
+<li>
+Vértice F (cor 3) </li>
+</ul>
+<h2><a class="anchor" id="d"></a>
+Resolução RLF</h2>
+<p>A execução do algoritmo resulta na seleção e coloração dos vértices na seguinte ordem:</p>
+<ul>
+<li>
+Vértice G (cor 1) </li>
+<li>
+Vértice A (cor 2) </li>
+<li>
+Vértice B (cor 3) </li>
+<li>
+Vértice C (cor 2) </li>
+<li>
+Vértice D (cor 3) </li>
+<li>
+Vértice E (cor 2) </li>
+<li>
+Vértice F (cor 3) </li>
+</ul>
+<p>Isso dá a solução tricolor final S= {{G},{A,C,E},{B,D,F}}</p>
+<h1><a class="anchor" id="e"></a>
+Sudokus como grafos</h1>
+<p>Um sudoku consegue ser representado na forma de um grafo da seguinte maneira:</p>
+<ul>
+<li>
+Cada célula do sudoku vai ser um vértice </li>
+<li>
+Para cada célula existe uma aresta com as células do mesmo bloco, coluna e linha </li>
+</ul>
+<p>Conseguindo transformar o sudoku em um grafo, pode se tentar resolver ele por coloração de vértices pois a coloração de vérice segue as regras do sudoku, ou seja, em vez de números usa-se cores e todo vértice não pode ter a mesma cor que um vértice adjacente a ele. Podendo resolver os sudokus como grafos por coloração de vértices teve-se a ideia de usar as formas básicas dos algoritmos de coloração de vértices DSatur e RLF para tentar resolver sudokus e comparar os dois algoritmos na questçao de resolver sudokus.</p>
+<h1><a class="anchor" id="Resultados"></a>
+Resultados</h1>
+<p>Com base na execução, com 100 grafos aleatórios com 30 vértices e 200 arestas, do algoritmo obtivemos os seguintes resultados:</p>
+<ol>
+<li>
+O tempo médio na coloração de grafos por meio do algoritmo DSatur foi de 91.64 ms </li>
+<li>
+O tempo médio na coloração de grafos por meio do algoritmo RLF foi de 744.51 ms </li>
+</ol>
+<p>Tambem foram realizados os teste em resolução de problemas Sudokus 2x2, tanto 3x3, com ambos foram gerados 100 suokus em que no 2x2 havia 2 células com cores e no 3x3 havia 5 células com cores, e os resultados obtidos foram:</p>
+<ol>
+<li>
+<p class="startli">Sudokus 2x2</p>
+<p class="interli">Tempo medio em microsegundos do algoritmo DSatur: 52<br  />
+ Porcentagem de sudokus resolvidos corretamente pelo DSatur: 73%</p>
+<p class="interli">Tempo medio em microsegundos do algoritmo RLF: 315.03<br  />
+ Porcentagem de sudokus resolvidos corretamente pelo RLF: 90%</p>
+<p class="endli"></p>
+</li>
+<li>
+<p class="startli">Sudokus 3x3</p>
+<p class="interli">Tempo medio em microsegundos do algoritmo DSatur: 400.28<br  />
+ Porcentagem de sudokus resolvidos corretamente pelo DSatur: 0%</p>
+<p class="endli">Tempo medio em microsegundos do algoritmo RLF: 21116.1<br  />
+ Porcentagem de sudokus resolvidos corretamente pelo RLF: 55% </p>
+</li>
+</ol>
+<h1><a class="anchor" id="Conclusão"></a>
+Conclusão</h1>
+<p>Pode ser concluido que para tanto grafos aleatórios e sudokus aleatórios o algoritmo DSatur é bem mais rápido que o algoritmo RLF, só que o algoritmo consegue criar colorações para os vértices de forma muita melhor do que as do DSatur por causa disto que ele consegue resolver muita mais sudokus que o DSatur, como pode ser visto nos resultados. Isto aconteceu pois o DSatur e RLF são algoritmos aproximados e não exatos.</p>
+<p>Como pode ser visto nos resultados dos sudokus as formas básicas dos alogritmos não são uma forma boa de resolver sudokus, pois ambas dependem de algo importante que o grau dos vértices mas como no sudoku os graus dos vértices são praticamente iguais eles os algoritmos não conseguem de forma boa desfazer os desempates que ocorrem neles.</p>
+<p>Outra conclusão é que o algoritmo DSatur não é bom para resolver sudokus, só que ele é bom para resolver de forma rápida uma coloração de vértices mas sem ter uma coloração muito boa. Já o algoritmo RLF é bem melhor para resolver sudokus mas nem sempre, só que ele é ruim para resolver de forma rápida uma coloração de vértices mas tem uma ótima coloração.</p>
+<h1><a class="anchor" id="f"></a>
+Compilação e Execução</h1>
+<p>O algoritmo possui um arquivo Makefile que realiza todo o procedimento de compilação e execução. Para tanto, temos as seguintes diretrizes de execução:</p>
+<table class="doxtable">
+<tr>
+<th>Comando </th><th>Fução  </th></tr>
+<tr>
+<td>make clean </td><td>Apaga a última compilação realizada contida na pasta build  </td></tr>
+<tr>
+<td>make </td><td>Executa a compilação do programa utilizando o gcc, e o resultado vai para a pasta build  </td></tr>
+<tr>
+<td>make run </td><td>Executa o programa da pasta build após a realização da compilação  </td></tr>
+</table>
+<p>Depois do código ser compilado vai ser perguntado ao usuário se ele que comparar os algoritmos para grafos aleatórios ou sudokus aleatórios.</p>
+<p>Se for escolhido grafos aleatórios vai ser perguntado depois quantos grafos devem ser gerados, o número de vértices(V) e o números de arestas(E), no máximo E=V*(V-1), para todos os grafos greados.</p>
+<p>Se for escolhidos sudokus aleatórios vai ser perguntado depois o tamanho dos sudokus a serem gerados, o números de sudokus a serem gerados e o números de células que começam com cores.</p>
+<p>Trabalho realizado Gabriel Teixeira e Marcus Vinícius - Novembro/2022 </p>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>
