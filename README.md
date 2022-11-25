@@ -96,6 +96,11 @@ Porcentagem de sudokus resolvidos corretamente pelo RLF: 55%
 </li>
 </ol>
 
+# Conclusão
+Pode ser concluido que para tanto grafos aleatórios e sudokus aleatórios o algoritmo DSatur é bem mais rápido que o algoritmo RLF, só que o algoritmo consegue criar colorações para os vértices de forma muita melhor do que as do DSatur por causa disto que ele consegue resolver muita mais sudokus que o DSatur, como pode ser visto nos resultados.
+
+Como pode ser visto nos resultados dos sudokus as formas básicas dos alogritmos não são uma forma boa de resolver sudokus, pois ambas dependem de algo importante que o grau dos vértices mas como no sudoku os graus dos vértices são praticamente iguais eles os algoritmos não conseguem de forma boa desfazer os desempates que ocorrem neles.
+
 | Comando                |  Função                                                                                           |
 | -----------------------| ------------------------------------------------------------------------------------------------- |
 |  `make clean`          | Apaga a última compilação realizada contida na pasta build                                        |
