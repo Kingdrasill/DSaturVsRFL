@@ -73,7 +73,7 @@ Um sudoku consegue ser representado na forma de um grafo da seguinte maneira:
 
 <ul>
   <li>Cada célula do sudoku vai ser um vértice</li>
-  <li>Para cada célula exist uma aresta com as células do mesmo bloco, coluna e linha</li>
+  <li>Para cada célula existe uma aresta com as células do mesmo bloco, coluna e linha</li>
 </ul>
 
 Conseguindo transformar o sudoku em um grafo, pode se tentar resolver ele por coloração de vértices pois a coloração de vérice segue as regras do sudoku, ou seja, em vez de números usa-se cores e todo vértice não pode ter a mesma cor que um vértice adjacente a ele. Podendo resolver os sudokus como grafos por coloração de vértices teve-se a ideia de usar as formas básicas dos algoritmos de coloração de vértices DSatur e RLF para tentar resolver sudokus e comparar os dois algoritmos na questçao de resolver sudokus.
