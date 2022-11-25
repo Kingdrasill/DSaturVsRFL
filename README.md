@@ -124,6 +124,10 @@ O algoritmo possui um arquivo Makefile que realiza todo o procedimento de compil
 |  `make`                | Executa a compilação do programa utilizando o gcc, e o resultado vai para a pasta build           |
 |  `make run`            | Executa o programa da pasta build após a realização da compilação                                 |
 
-Depois do código ser compilado vai ser perguntado ao usuário se ele que comparar os algoritmos para grafos aleatórios ou sudokus aleatórios, se for escolhido grafos aleatórios vai ser perguntado depois quantos grafos devem ser gerados, o número de vértices(V) e o números de arestas(E), no máximo E=V*(V-1), para todos os grafos greados. E se for escolhidos sudokus aleatórios vai ser perguntado depois o tamanho dos sudokus a serem gerados, o números de sudokus a serem gerados e o números de células que começam com cores.
+Depois do código ser compilado vai ser perguntado ao usuário se ele que comparar os algoritmos para grafos aleatórios ou sudokus aleatórios.
+
+Se for escolhido grafos aleatórios vai ser perguntado depois quantos grafos devem ser gerados, o número de vértices(V) e o números de arestas(E), no máximo E=V*(V-1), para todos os grafos greados. 
+
+Se for escolhidos sudokus aleatórios vai ser perguntado depois o tamanho dos sudokus a serem gerados, o números de sudokus a serem gerados e o números de células que começam com cores.
 
 <p>Trabalho realizado Gabriel Teixeira e Marcus Vinícius - Novembro/2022</p>
