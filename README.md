@@ -66,7 +66,7 @@ Tanto o gráfico DSatur e RLF são gráficos de rodas apresentados pela imagem a
 <img src="imgs/img1.jpg">
 
 # Resultados
-Com base na execução do algoritmo obtivemos os seguintes resultados:
+Com base na execução, com 100 grafos aleatórios com 30 vértices e 200 arestas, do algoritmo obtivemos os seguintes resultados:
 
 <ol>
 <li>O tempo médio na coloração de grafos por meio do algoritmo DSatur foi de 91.64 ms</li>
