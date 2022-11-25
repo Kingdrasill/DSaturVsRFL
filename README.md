@@ -42,7 +42,7 @@ Vértices subseqüentes adicionados a <i>S</i> devem ser escolhidos como aqueles
 
 # Exemplo 
 Tanto o gráfico DSatur e RLF são gráficos de rodas apresentados pela imagem abaixo
-<img src="imgs/img1.jpg" width="400">
+<img src="imgs/img1.jpg" width="450">
 
 ### Resolução DSatur
 A execução do algoritmo resulta na seleção e coloração dos vértices da seguinte forma.
