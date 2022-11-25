@@ -1,0 +1,14 @@
+var searchData=
+[
+  ['calculateneighboradjacenctsandnots_3',['calculateNeighborAdjacenctSAndNotS',['../rlf_8cpp.html#a938a51eca4a214c45704ee3c4908fd10',1,'calculateNeighborAdjacenctSAndNotS(graph g, vector&lt; position &gt; S, vector&lt; position &gt; *temp, vector&lt; int &gt; adj):&#160;rlf.cpp'],['../rlf_8hpp.html#a938a51eca4a214c45704ee3c4908fd10',1,'calculateNeighborAdjacenctSAndNotS(graph g, vector&lt; position &gt; S, vector&lt; position &gt; *temp, vector&lt; int &gt; adj):&#160;rlf.cpp']]],
+  ['calculatevertexdegree_4',['calculateVertexDegree',['../graph_8cpp.html#a87c37d168871279c105903842edb9218',1,'calculateVertexDegree(graph *g):&#160;graph.cpp'],['../graph_8hpp.html#a87c37d168871279c105903842edb9218',1,'calculateVertexDegree(graph *g):&#160;graph.cpp']]],
+  ['cell_5',['cell',['../structcell.html',1,'cell'],['../graph_8hpp.html#aec1b5e3c3df16427325defaffcb3cb2e',1,'cell():&#160;graph.hpp']]],
+  ['checkifsudokusovable_6',['checkIfSudokuSovable',['../graph_8cpp.html#acaa778f98eb90e162af41066bea39f5c',1,'checkIfSudokuSovable(graph g):&#160;graph.cpp'],['../graph_8hpp.html#acaa778f98eb90e162af41066bea39f5c',1,'checkIfSudokuSovable(graph g):&#160;graph.cpp']]],
+  ['color_7',['color',['../structcell.html#a7b2e461402b8b91f1bf512b2f0564a44',1,'cell']]],
+  ['colorirvertexdsatur_8',['colorirVertexDSatur',['../dsatur_8cpp.html#adbb362ad92426de2f2e78dd0dad5b17e',1,'colorirVertexDSatur(graph *g, int vertice):&#160;dsatur.cpp'],['../dsatur_8hpp.html#adbb362ad92426de2f2e78dd0dad5b17e',1,'colorirVertexDSatur(graph *g, int vertice):&#160;dsatur.cpp']]],
+  ['comparealgorithmsforgraphs_9',['compareAlgorithmsForGraphs',['../function_8cpp.html#aa5088a36fee87ec3c60fda008fd2081d',1,'compareAlgorithmsForGraphs():&#160;function.cpp'],['../function_8hpp.html#aa5088a36fee87ec3c60fda008fd2081d',1,'compareAlgorithmsForGraphs():&#160;function.cpp']]],
+  ['comparealgorithmsforsudokus_10',['compareAlgorithmsForSudokus',['../function_8cpp.html#a5c7de3e875b33ac2e3b27178d23c6ec8',1,'compareAlgorithmsForSudokus():&#160;function.cpp'],['../function_8hpp.html#a5c7de3e875b33ac2e3b27178d23c6ec8',1,'compareAlgorithmsForSudokus():&#160;function.cpp']]],
+  ['cores_11',['cores',['../structsolution.html#aaee8db6e1068ecbe710a2f8b838a2115',1,'solution']]],
+  ['createvectorofadjacentsandnot_12',['createVectorOfAdjacentsAndNot',['../rlf_8cpp.html#aafd4f1d9d0dfe603d6f0e76dd4d3b8fe',1,'createVectorOfAdjacentsAndNot(graph g, vector&lt; position &gt; S, vector&lt; position &gt; *notAdj, vector&lt; int &gt; *adj, int color):&#160;rlf.cpp'],['../rlf_8hpp.html#a318fc046817909954e828b511f76b51c',1,'createVectorOfAdjacentsAndNot(graph g, vector&lt; position &gt; S, vector&lt; position &gt; *adj, vector&lt; int &gt; *notAdj, int color):&#160;rlf.cpp']]],
+  ['currentposition_13',['currentPosition',['../structposition.html#a1048762ff1efe2e8f2359a8908bcdd93',1,'position']]]
+];

@@ -1,5 +1,21 @@
 #include "graph.hpp"
 
+/** @brief Inicilizia um grafo com n vértices sem nenhuma aresta.
+ * 
+ *  @pre Já possuir um 'graph' declarado e o usuário ter informado o 'num'
+ * 
+ *  @param g Um ponteiro de um 'graph'
+ *  @param num Um inteiro que diz a quantidade de vértices
+ * 
+ *  @return Void
+ *  
+ *  @details
+ *   Iniciliza um grafo usando o inteiro 'num' passado para o método
+ *   para dizer qual a quantidade de vértices o grafo tem. O método
+ *   seta 'numVertices' para ser igual a 'num', 'numColoridos' para
+ *   ser 0 e cria a matriz de adjacência em 'adjMatrix', e dentro de
+ *   'adjMatrix' seta os dados de todos os 'cell' como 0.
+ */
 void initializeGraph(graph* g, int num){
     g->numVertices = num;
     g->numColoridos = 0;
@@ -17,6 +33,26 @@ void initializeGraph(graph* g, int num){
 
 }
 
+/** @brief Inicializa o grafo de um sudoku nxn.
+ * 
+ *  @pre Já possuir um 'graph' declarado e o usuário ter informado o 'n'
+ *  
+ *  @param g Um ponteiro de um 'graph'
+ *  @param n Um inteiro que diz o tipo de sudoku
+ * 
+ *  @return Void
+ * 
+ *  @details
+ *   Inicializa o grafo para um sudoku 'n'x'n' logo ele primeiro calcula
+ *   a quantidade de blocos em 'cells', a quantidade de vértices em 'size'.
+ *   Depois ele usa o método 'initizalizeGraph' para inicilizar o grafo com
+ *   'size' vértices, após isto ele cria uma matriz auxiliar para descobrir
+ *   quais os vértices fazem parte do bloco de um vértice qualquer do grafo.
+ *   Com isto feito, o método pega todos vértices do grafo e monta as arestas
+ *   de cada um, sendo elas com os vértices na mesma linha, coluna e no mesmo
+ *   bloco, e por último ele chama o método 'calculateVertexDegree' para calcular
+ *   o grau de todos os vértices do grafo.
+*/
 void initializeSudoku(graph *g, int n) {
     int m = 0, x = 0, y = 0;
     int cells = pow(n,2);
@@ -49,6 +85,22 @@ void initializeSudoku(graph *g, int n) {
     calculateVertexDegree(g);
 }
 
+/** @brief Checa se um grafo sudoku é posssivel de resolver.
+ * 
+ *  @pre O 'graph' passado para o método já ter sido inicializado 
+ * 
+ *  @param g Um 'graph' que é um sudoku
+ * 
+ *  @return true se o sudoku for possível de resolver
+ *  @return false se o sudoku não for possível de resolver
+ * 
+ *  @details
+ *   Checa se um grafo sudoku é posssivel de resolver, para fazer isto
+ *   o método verifica se algum vértice com cor é vizinho de um vértice
+ *   que tem uma cor igual a dele e verifica quantas cores diferentes o
+ *   grafo possui se for maior que a quantidade necessária, se uma duas
+ *   condições acontecerem o método retorna false.
+ */
 bool checkIfSudokuSovable(graph g) {
     vector<int> vertexs, cores;
     bool possible=true;
@@ -76,12 +128,35 @@ bool checkIfSudokuSovable(graph g) {
     return possible;
 }
 
+/** @brief Adiciona uma cor a um vértice que possível.
+ *  
+ *  @pre Já possuir um 'graph' declarado e o usuário ter informado um vértice dentro do grafo
+ * 
+ *  @param g Um ponteiro de um 'graph' já declarado
+ *  @param vertex Um inteiro que diz qual vértice deve ser pintado
+ *  @param color Um inetiro que informa qual é a cor 
+ * 
+ *  @return Void
+*/
 void addVertexColor(graph* g, int vertex, int color) {
     if(vertex < g->numVertices) {
         g->adjMatrix[vertex][vertex].color = color;
     }
 }
 
+/** @brief Calcula o grau de todos os vértices de um grafo.
+ *  
+ *  @pre Já possuir um 'graph' declarado
+ * 
+ *  @param g Um ponteiro de um 'graph' já declarado
+ * 
+ *  @return Void
+ * 
+ *  @details
+ *   Calcula o grau de todos os vértices de um grafo, o método
+ *   pega um vértice do grafo e olha quantos vizinhos o vértice
+ *   possui salvando o valor em 'degree', isto é feito para todos os vértices.
+*/
 void calculateVertexDegree(graph *g) {
     int grau;
     for(int i = 0;  i < g->numVertices; i++) {
@@ -96,6 +171,16 @@ void calculateVertexDegree(graph *g) {
     }
 }
 
+/** @brief Adiciona uma aresta em um grafo e ao aumenta o grau dos vértices passados.
+ *  
+ *  @pre Já possuir um 'graph' declarado e o usuário ter informado dois vértices diferentes do grafo
+ * 
+ *  @param g Um ponteiro de um 'graph' já declarado
+ *  @param i Um inteiro que diz uma das extremidades da aresta
+ *  @param j Um inetiro que diz outra extremidade da aresta
+ * 
+ *  @return Void
+*/
 void addEdge(graph* g,int i,int j){
     if(!g->adjMatrix[i][j].edge) {
         g->adjMatrix[i][j].edge = true;
@@ -105,6 +190,16 @@ void addEdge(graph* g,int i,int j){
     }
 }
 
+/** @brief Remove uma aresta de um grafo e ao diminui o grau dos vértices passados.
+ *  
+ *  @pre Já possuir um 'graph' declarado e o usuário ter informado dois vértices diferentes do grafo
+ * 
+ *  @param g Um ponteiro de um 'graph' já declarado
+ *  @param i Um inteiro que diz uma das extremidades da aresta
+ *  @param j Um inetiro que diz outra extremidade da aresta
+ * 
+ *  @return Void
+*/
 void removeEdge(graph* g,int i,int j){
     g->adjMatrix[i][j].edge = false;
     g->adjMatrix[j][i].edge = false;
@@ -112,6 +207,22 @@ void removeEdge(graph* g,int i,int j){
     g->adjMatrix[j][j].degree -=1;
 }
 
+/** @brief Remove um vértice de um grafo.
+ *  
+ *  @pre Já possuir um 'graph' declarado e o usuário ter informado um vértice
+ * 
+ *  @param g Um ponteiro de um 'graph' já declarado
+ *  @param x Um inteiro que diz qual o vértice a ser removido
+ * 
+ *  @return Void
+ * 
+ *  @details
+ *   O método remove remove um vértce de um grafo para fazer isto
+ *   ele move todas as colunas depois da coluna do vértice a ser removido
+ *   da 'adjMatrix' uma coluna para trás e move todas as linhas depois da
+ *   linha do vértice a ser removido da 'adjMatrix' uma linha para trás e
+ *   por último diminui 'numVertices' do grafo em 1.
+*/
 void removeVertex(graph *g, int x) {
     if(x > g->numVertices) {
         cout << "\nVertice nao existe!" << endl;
@@ -135,6 +246,14 @@ void removeVertex(graph *g, int x) {
     }
 }
 
+/** @brief Remove os números repetidos de um vector usando sets.
+ *  
+ *  @pre Já possuir um 'vector<int>' declarado
+ * 
+ *  @param vec Um ponteiro de um 'vector<int>' já declarado
+ * 
+ *  @return Void
+*/
 void removeDuplicates(vector<int> *vec) {
     set<int> s;
     unsigned size = vec->size();
@@ -142,19 +261,43 @@ void removeDuplicates(vector<int> *vec) {
     vec->assign( s.begin(), s.end() );
 }
 
+/** @brief Gera um sudoku aleatório com n vértices coloridos.
+ *  
+ *  @pre Já possuir um 'graph' declarado e o usuário ter informado quantos vértices devem já ser coloridos
+ * 
+ *  @param g Um ponteiro de um 'graph' já declarado
+ *  @param numColors Um inteiro que diz qunatos vértices devem ser coloridos
+ * 
+ *  @return Void
+ * 
+ *  @details
+ *   Gera um sudoku aleatório com n vértices coloridos, ele colore um vértice
+ *   com a menor cor possível e os próximos vértices possíveis vão receber uma
+ *   cor maior que a do último vértice colorido.
+*/
 void sudokuRand(graph *g, int numColors) {
-    int cor = 1;
+    int cor = 1, buffer;
     while(cor <= numColors) {
+        buffer = cor;
         do {
             int vertex = randV(*g);
             if(g->adjMatrix[vertex][vertex].color == 0) {
-                addVertexColor(g, vertex, cor%(int)pow(g->numVertices, 1.0/2)+1);
+                addVertexColor(g, vertex, cor);
                 cor++;
             }
-        } while(!checkIfSudokuSovable(*g));
+        } while(buffer == cor);
     }
 }
 
+/** @brief Gera um grafo aleatório com n vértices e m arestas.
+ *  
+ *  @pre O usuário ter informado a quantidade de vértices e arestas
+ * 
+ *  @param V Um inteiro qua informa a quantidade de vértices
+ *  @param A Um inteiro que diz a quantidade de arestas
+ * 
+ *  @return Retorna um 'graph' aleatório
+*/
 graph graphRand(int V, int A) {
     int numA=0;
     graph g;
@@ -170,6 +313,14 @@ graph graphRand(int V, int A) {
     return g;
 }
 
+/** @brief Retorna um vértice aleatório de um grafo 
+ * 
+ *  @pre Já ter um 'graph' declarado
+ * 
+ *  @param g Um 'graph' para pegar um vértice aleatório
+ * 
+ *  @return Retorna um vértice alletório do grafo passado ao método
+*/
 int randV(graph g) {
     double r = rand() / (RAND_MAX + 1.0);
     return r * g.numVertices;
