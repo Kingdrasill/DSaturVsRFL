@@ -47,20 +47,24 @@ Tanto o gráfico DSatur e RLF são gráficos de rodas apresentados pela imagem a
 ### Resolução DSatur
 A execução do algoritmo resulta na seleção e coloração dos vértices da seguinte forma.
 
-Vértice <i>G</i> (cor 1)
-Vértice <i>A</i> (cor 2)
-Vértice <i>B</i> (cor 3)
-Vértice <i>C</i> (cor 2)
-Vértice <i>D</i> (cor 3)
-Vértice <i>E</i> (cor 2)
-Vértice <i>F</i> (cor 3)
+<ul>
+  <li>Vértice <i>G</i> (cor 1)</li>
+  <li>Vértice <i>A</i> (cor 2)</li>
+  <li>Vértice <i>B</i> (cor 3)</li>
+  <li>Vértice <i>C</i> (cor 2)</li>
+  <li>Vértice <i>D</i> (cor 3)</li>
+  <li>Vértice <i>E</i> (cor 2)</li>
+  <li>Vértice <i>F</i> (cor 3)</li>
+</ul>
 
 ### Resolução RLF
 A execução do algoritmo resulta na seleção e coloração dos vértices na seguinte ordem:
 
-Vértice <i>G</i> (cor 1)
-Vértice <i>A,C</i>, e depois <i>E</i> (cor 2)
-Vértice <i>B,D</i>, e depois <i>F</i> (cor 3)
+<ul>
+  <li>Vértice <i>G</i> (cor 1)</li>
+  <li>Vértice <i>A,C</i>, e <i>E</i> (cor 2)</li>
+  <li>Vértice <i>B,D</i>, e <i>F</i> (cor 3)</li>
+</ul>
 
 Isso dá a solução tricolor final <i>S= {{G},{A,C,E},{B,D,F}</i>
 
