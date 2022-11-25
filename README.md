@@ -68,6 +68,16 @@ A execução do algoritmo resulta na seleção e coloração dos vértices na se
 
 Isso dá a solução tricolor final <i>S= {{G},{A,C,E},{B,D,F}}</i>
 
+# Sudokus como grafos
+Um sudoku consegue ser representado na forma de um grafo da seguinte maneira:
+
+<ul>
+  <li>Cada célula do sudoku vai ser um vértices</li>
+  <li>Para cada célula exist uma aresta com as células do mesmo bloco, coluna e linha</li>
+</ul>
+
+Conseguindo transformar o sudoku em um grafo, pode se tentar resolver ele por coloração de vértices pois a coloração de vérice segue as regras do sudoku, ou seja, em vez de números usa-se cores e todo vértice não pode ter a mesma cor que um vértice adjacente a ele. Podendo resolver os sudokus como grafos por coloração de vértices teve-se a ideia de usar as formas básicas dos algoritmos de coloração de vértices DSatur e RLF para tentar resolver sudokus e comparar os dois algoritmos na questçao de resolver sudokus.
+
 # Resultados
 Com base na execução, com 100 grafos aleatórios com 30 vértices e 200 arestas, do algoritmo obtivemos os seguintes resultados:
 
@@ -97,9 +107,11 @@ Porcentagem de sudokus resolvidos corretamente pelo RLF: 55%
 </ol>
 
 # Conclusão
-Pode ser concluido que para tanto grafos aleatórios e sudokus aleatórios o algoritmo DSatur é bem mais rápido que o algoritmo RLF, só que o algoritmo consegue criar colorações para os vértices de forma muita melhor do que as do DSatur por causa disto que ele consegue resolver muita mais sudokus que o DSatur, como pode ser visto nos resultados.
+Pode ser concluido que para tanto grafos aleatórios e sudokus aleatórios o algoritmo DSatur é bem mais rápido que o algoritmo RLF, só que o algoritmo consegue criar colorações para os vértices de forma muita melhor do que as do DSatur por causa disto que ele consegue resolver muita mais sudokus que o DSatur, como pode ser visto nos resultados. Isto aconteceu pois o DSatur e RLF são algoritmos aproximados e não exatos.
 
 Como pode ser visto nos resultados dos sudokus as formas básicas dos alogritmos não são uma forma boa de resolver sudokus, pois ambas dependem de algo importante que o grau dos vértices mas como no sudoku os graus dos vértices são praticamente iguais eles os algoritmos não conseguem de forma boa desfazer os desempates que ocorrem neles.
+
+Outra conclusão é que o algoritmo DSatur não é bom para resolver sudokus, só que ele é bom para resolver de forma rápida uma coloração de vértices mas sem ter uma coloração muito boa. Já o algoritmo RLF é bem melhor para resolver sudokus mas nem sempre, só que ele é ruim para resolver de forma rápida uma coloração de vértices mas tem uma ótima coloração.  
 
 | Comando                |  Função                                                                                           |
 | -----------------------| ------------------------------------------------------------------------------------------------- |
