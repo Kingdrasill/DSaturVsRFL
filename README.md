@@ -15,18 +15,6 @@ DSatur é um algoritmo usado para a coloração de grafos que foi inicialmente a
 <li>Se todos os vértices foram coloridos, end; caso contrário, retorne ao Passo 1.</l1>
 </ol>
 
-### Exemplos DSatur
-A execução do algoritmo resulta na seleção e coloração dos vértices da seguinte forma.
-
-Vértice <i>G</i> (cor 1)
-Vértice <i>A</i> (cor 2)
-Vértice <i>B</i> (cor 3)
-Vértice <i>C</i> (cor 2)
-Vértice <i>D</i> (cor 3)
-Vértice <i>E</i> (cor 2)
-Vértice <i>F</i> (cor 3)
-
-
 # Recursive Largest First (RLF)
 O algoritmo Recursive Largest First é uma heurística para o problema de coloração de grafos NP-difícil . Foi originalmente proposto por Frank Leighton em 1979.
 
@@ -52,7 +40,22 @@ Vértices subseqüentes adicionados a <i>S</i> devem ser escolhidos como aqueles
 <li>Agora definido <i>S = S ∪ {S}</i> e remover os vértices de <i>S</i> a partir de <i>G</i> . Se <i>G</i> ainda contém vértices, então retorne ao Passo 2; caso contrário, terminar.</li>
 </ol>
 
-### Exemplo RLF
+# Exemplo 
+Tanto o gráfico DSatur e RLF são gráficos de rodas apresentados pela imagem abaixo
+<img src="imgs/img1.jpg">
+
+### Resolução DSatur
+A execução do algoritmo resulta na seleção e coloração dos vértices da seguinte forma.
+
+Vértice <i>G</i> (cor 1)
+Vértice <i>A</i> (cor 2)
+Vértice <i>B</i> (cor 3)
+Vértice <i>C</i> (cor 2)
+Vértice <i>D</i> (cor 3)
+Vértice <i>E</i> (cor 2)
+Vértice <i>F</i> (cor 3)
+
+### Resolução RLF
 A execução do algoritmo resulta na seleção e coloração dos vértices na seguinte ordem:
 
 Vértice <i>G</i> (cor 1)
@@ -60,10 +63,6 @@ Vértice <i>A,C</i>, e depois <i>E</i> (cor 2)
 Vértice <i>B,D</i>, e depois <i>F</i> (cor 3)
 
 Isso dá a solução tricolor final <i>S= {{G},{A,C,E},{B,D,F}</i>
-
-# Exemplo 
-Tanto o gráfico DSatur e RLF são gráficos de rodas apresentados pela imagem abaixo
-<img src="imgs/img1.jpg">
 
 # Resultados
 Com base na execução, com 100 grafos aleatórios com 30 vértices e 200 arestas, do algoritmo obtivemos os seguintes resultados:
