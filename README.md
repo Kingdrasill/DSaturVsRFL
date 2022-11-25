@@ -73,23 +73,23 @@ Com base na execução, com 100 grafos aleatórios com 30 vértices e 200 aresta
 <li>O tempo médio na coloração de grafos por meio do algoritmo RLF foi de 744.51 ms</li>
 </ol>
 
-Tambem foram realizados os teste em resolução de problemas Sudokus 2x2, tanto 3x3 e os resultados obtidos foram: 
+Tambem foram realizados os teste em resolução de problemas Sudokus 2x2, tanto 3x3, com ambos foram gerados 100 suokus em que no 2x2 havia 2 células com cores e no 3x3 havia 5 células com cores, e os resultados obtidos foram: 
 
 <ol>
 
 <li>Sudokus 2x2 <br>
-Tempo medio em microsegundos do algoritmo DSatur: 39.42
-Tempo medio em microsegundos do algoritmo RLF: 201.47
+Tempo medio em microsegundos do algoritmo DSatur: 52
+Tempo medio em microsegundos do algoritmo RLF: 315.03
 
-Porcentagem de sudokus resolvidos corretamente pelo DSatur: 26%
-Porcentagem de sudokus resolvidos corretamente pelo RLF: 30%
+Porcentagem de sudokus resolvidos corretamente pelo DSatur: 73%
+Porcentagem de sudokus resolvidos corretamente pelo RLF: 90%
 </li>
 <li>Sudokus 3x3 <br>
-Tempo medio em microsegundos do algoritmo DSatur: 293.45 ms
-Tempo medio em microsegundos do algoritmo RLF: 14582 ms
+Tempo medio em microsegundos do algoritmo DSatur: 400.28 ms
+Tempo medio em microsegundos do algoritmo RLF: 21116.1 ms
 
 Porcentagem de sudokus resolvidos corretamente pelo DSatur: 0%
-Porcentagem de sudokus resolvidos corretamente pelo RLF: 26%
+Porcentagem de sudokus resolvidos corretamente pelo RLF: 55%
 </li>
 </ol>
 
