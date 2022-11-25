@@ -4,6 +4,8 @@ O objetivo da implementação desse algoritmo é de realizar a comparação de d
 
 Documentação: <a href="https://kingdrasill.github.io/DSaturVsRLF/">https://kingdrasill.github.io/DSaturVsRLF/</a>
 
+Integrantes: Gabriel Teixeira e Marcus Vinícius
+
 # DSatur
 
 DSatur é um algoritmo usado para a coloração de grafos que foi inicialmente apresentado por Daniel Brélaz em 1979, o DSatur é similiar ao algoritmo de coloração guloso, colorindo um vertice do grafo um após o outro, adicionando uma cor não usada anteriormente quando necessário. Uma vez que um novo vértice foi colorido, o algoritmo determina qual dos vértices não coloridos restantes tem o maior número de cores em sua vizinhança e colore esse vértice a seguir.
