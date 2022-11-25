@@ -72,7 +72,7 @@ Isso dá a solução tricolor final <i>S= {{G},{A,C,E},{B,D,F}}</i>
 Um sudoku consegue ser representado na forma de um grafo da seguinte maneira:
 
 <ul>
-  <li>Cada célula do sudoku vai ser um vértices</li>
+  <li>Cada célula do sudoku vai ser um vértice</li>
   <li>Para cada célula exist uma aresta com as células do mesmo bloco, coluna e linha</li>
 </ul>
 
