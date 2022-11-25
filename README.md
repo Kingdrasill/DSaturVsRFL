@@ -90,23 +90,23 @@ Tambem foram realizados os teste em resolução de problemas Sudokus 2x2, tanto 
 
 <ol>
 
-<li>Sudokus 2x2 <br>
-Tempo medio em microsegundos do algoritmo DSatur: 52
+<li>Sudokus 2x2
   
-Tempo medio em microsegundos do algoritmo RLF: 315.03
-
+Tempo medio em microsegundos do algoritmo DSatur: 52<br>
 Porcentagem de sudokus resolvidos corretamente pelo DSatur: 73%
   
+Tempo medio em microsegundos do algoritmo RLF: 315.03<br>
 Porcentagem de sudokus resolvidos corretamente pelo RLF: 90%
-</li>
-<li>Sudokus 3x3 <br>
-Tempo medio em microsegundos do algoritmo DSatur: 400.28
   
-Tempo medio em microsegundos do algoritmo RLF: 21116.1
-
+</li>
+<li>Sudokus 3x3
+  
+Tempo medio em microsegundos do algoritmo DSatur: 400.28<br>
 Porcentagem de sudokus resolvidos corretamente pelo DSatur: 0%
   
+Tempo medio em microsegundos do algoritmo RLF: 21116.1<br>
 Porcentagem de sudokus resolvidos corretamente pelo RLF: 55%
+
 </li>
 </ol>
 
